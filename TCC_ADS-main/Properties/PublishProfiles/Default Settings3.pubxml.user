@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAqnu6lospUUqz2RUmUWxJvwAAAAACAAAAAAAQZgAAAAEAACAAAACwUOvcTGuEpb4MOCgZx+u03GJ/kQ8LaZUOEafeyDfEngAAAAAOgAAAAAIAACAAAAAMcnd6kigcztQEmDqLLgwFUni0Kpj2jKf7t++osQZnACAAAAB0z1VpE0SNP1DeUrHKGWuTUsPbJ9OjFdRMih6uFPBKbUAAAABFK1dqZwYfL7EWw9ZpAyFO1F/nO69w8rxxoKOmtCkr0KfbhWu+A+KpSetYjG4MamegfwopbcD5Ubj62hwhg7TY</EncryptedPassword>
+    <History>True|2021-10-27T13:31:33.3351583Z;True|2021-10-27T10:20:40.1657698-03:00;True|2021-10-27T10:12:21.1540123-03:00;True|2021-10-27T08:41:00.9905305-03:00;True|2021-10-27T08:38:54.6523676-03:00;True|2021-10-27T08:36:10.6747543-03:00;True|2021-10-26T23:49:00.0630327-03:00;True|2021-10-26T23:43:40.8107548-03:00;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="IESConnection">
+      <Value>Data Source=SQL5104.site4now.net%3bInitial Catalog=db_a7ba30_tcc%3bUser Id=db_a7ba30_tcc_admin%3bPassword=Mimicego%4014%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="Gerenciador.Context.Contexto">
+      <Value>Data Source=SQL5104.site4now.net%3bInitial Catalog=db_a7ba30_tcc%3bUser Id=db_a7ba30_tcc_admin%3bPassword=Mimicego%4014%3b</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

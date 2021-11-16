@@ -1,0 +1,55 @@
+﻿@model Gerenciador.ViewModels.LoginViewModel
+@{
+    ViewBag.Title = "Login";
+}
+    <div class="hold-transition login-page">
+        <div class="login-box">
+            <!-- /.login-logo -->
+            <div class="card card-outline card-primary">
+                <div class="card-header text-center">
+                    <a href="../../index2.html" class="h1"><b>GDA</b>Instituição</a>
+                </div>
+                <div class="card-body">
+                    <p class="login-box-msg">Entre com sua conta</p>
+
+                    <form method="post">
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <div class="input-group mb-3">
+                            <input asp-for="Email" type="email" class="form-control" placeholder="Email">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-envelope" asp-validation-for="Email"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input asp-for="Password" type="password" class="form-control" placeholder="Password">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-lock" asp-validation-for="Password"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="icheck-primary">
+                                    <input type="checkbox" id="remember" asp-for="RememberMe" />
+                                    @Html.DisplayNameFor(m => m.RememberMe)
+                                    <label asp-for="RememberMe">
+                                        Lembrar
+                                    </label>
+                                </div>
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-4">
+                                <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                    </form>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+  

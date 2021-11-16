@@ -1,0 +1,135 @@
+﻿@model GERENCIADOR_TESTE_TEMPLANTE.Models.FileUploadViewModel
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+
+
+<div class="col-md-12">
+    <!-- jquery validation -->
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">Envio de Arquivos Academicos</h3>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        @if (TempData["Message1"] != null)
+        {
+    <div class="alert alert-danger alert-dismissible" style="margin-top:20px">
+        @TempData["Message1"]
+    </div>}
+
+        @if (TempData["Message"] != null)
+        {
+    <div class="alert alert-success alert-dismissible" style="margin-top:20px">
+        @TempData["Message"]
+    </div>}
+
+        <hr />
+
+        <form method="post" enctype="multipart/form-data">
+
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Envio de Arquivo</h3>
+                </div>
+                <form>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Integrantes do trabalho</label>
+                            <input type="text" autocomplete="off" class="form-control" id="description" name="description" placeholder="Separe por virgula exemplo: estevao, gabriel, jordhan" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputFile">Selecione o Arquivo</label>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" name="files" multiple class="custom-file-input" required />
+                                    <label class="custom-file-label" for="exampleInputFile">Escolher arquivo</label>
+                                </div>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">Upload</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary" asp-controller="File" asp-action="UploadToDatabase">Enviar Publico</button>
+                        </div>
+                </form>
+            </div>
+        </form>
+
+        @if (SignInManager.IsSignedIn(User))
+        {
+    @if (User.IsInRole("Administrador"))
+    {
+    @if (Model.FilesOnDatabase.Count == 0)
+    {
+    <caption>No Records Found</caption> }
+else
+{
+    <caption>List of Files on Database</caption>
+                            <table  id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Arquivo</th>
+                                        <th>Integrantes</th>
+                                        <th>Tipo Arquivo</th>
+                                        <th>Criado</th>
+                                        <th>Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var file in Model.FilesOnDatabase)
+                                    {
+            <tr>
+                <th>@file.Id</th>
+                <td>@file.NomeArquivo</td>
+                <td>@file.Descricao</td>
+                <td>@file.TipoArquivo</td>
+                <td>@file.DataCriacao</td>
+                <td>
+                    <a type="button" class="btn btn-primary" asp-controller="File" asp-action="Download" asp-route-id="@file.Id">Download</a>
+                    <a type="button" class="btn btn-danger" asp-controller="File" asp-action="DeleteFileFromDatabase" asp-route-id="@file.Id">Delete</a>
+                    <form method="post" asp-action="Acceptcontent" asp-route-id="@file.Id">
+                        <span id="confirmaDeleteSpan_@file.Id" style="display:none">
+                            <span>Confirma a aprovação deste arquivo ?</span>
+                            <button type="submit" class="btn btn-success">Sim</button>
+                            <a href="#" class="btn btn-primary"
+                               onclick="confirmaDelete('@file.Id', false)">Não</a>
+                        </span>
+                        <span id="deleteSpan_@file.Id">
+                            <a href="#" class="btn btn-warning"
+                               onclick="confirmaDelete('@file.Id', true)">Aprovar</a>
+                        </span>
+                    </form>
+                </td>
+            </tr>}
+                                </tbody>
+                            </table>}}}
+    </div>
+        <!-- /.card -->
+    </div>
+
+
+
+
+
+
+
+
+
+@section Scripts {
+    <script src="~/js/CustomScript.js">$(function () {
+  bsCustomFileInput.init();
+});</script>
+    <script>
+        $(document).ready(function () {
+            $('#table_id').DataTable();
+        });
+    </script>
+
+
+}
+
+
