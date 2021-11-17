@@ -30,7 +30,7 @@ namespace Gerenciador.Controllers
             _context = context;
         }
 
-        [AllowAnonymous]
+        [Authorize(Roles = "Administrador, Aluno, Professor")]
         public async Task<IActionResult> Autor(string filter, int Autor = 1, string sort = "Autor")
         {
             var resultado = _context.FilesOnDatabase.AsNoTracking().Include(ab => ab.professor).Include(ac=>ac.categoria).Include(ad=>ad.TipoTrabalho).Where(a => a.status == "aprovado");
@@ -47,7 +47,7 @@ namespace Gerenciador.Controllers
             return View(model);
         }
 
-        [AllowAnonymous]
+        [Authorize(Roles = "Administrador, Aluno, Professor")]
         public async Task<IActionResult> Descricao(string filter, int Descricao = 1, string sort = "Descricao")
         {
             var resultado = _context.FilesOnDatabase.AsNoTracking()
@@ -64,7 +64,7 @@ namespace Gerenciador.Controllers
             return View(model);
         }
 
-        [AllowAnonymous]
+        [Authorize(Roles = "Administrador, Aluno, Professor")]
         public async Task<IActionResult> Titulo(string filter, int Titulo = 1, string sort = "Titulo")
         {
             var resultado = _context.FilesOnDatabase.AsNoTracking()
@@ -182,7 +182,7 @@ namespace Gerenciador.Controllers
             return RedirectToAction("Arquivos");
         }
 
-        [AllowAnonymous]
+        [Authorize(Roles = "Administrador, Aluno, Professor")]
         public async Task<IActionResult> Download(int id)
         {
             if(id == null)
@@ -209,7 +209,7 @@ namespace Gerenciador.Controllers
             return RedirectToAction(nameof(Index2));
         }
 
-        [AllowAnonymous]
+        [Authorize(Roles = "Administrador, Aluno, Professor")]
         public async Task<IActionResult> Detalhes(int? id)
         {
             if (id == null)

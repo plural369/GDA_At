@@ -2389,11 +2389,7 @@
         }
       },
       "System.Text.Encodings.Web/4.5.0": {},
-      "System.Text.Json/4.6.0": {
-        "compile": {
-          "lib/netcoreapp3.0/System.Text.Json.dll": {}
-        }
-      },
+      "System.Text.Json/4.6.0": {},
       "System.Text.RegularExpressions/4.3.0": {
         "dependencies": {
           "System.Runtime": "4.3.0"

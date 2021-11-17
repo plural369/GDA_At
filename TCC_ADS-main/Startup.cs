@@ -71,7 +71,7 @@ namespace Gerenciador
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=File}/{action=Autor}/{id?}");
+                    pattern: "{controller=Account}/{action=Login}/{id?}");
             });
         }
     }

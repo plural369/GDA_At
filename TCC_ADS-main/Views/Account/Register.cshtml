@@ -2,22 +2,15 @@
 @{
     ViewBag.Title = "Registro de Usuário";
 }
+@{
+   Layout = "~/Views/Shared/_Register.cshtml";
+}
 
 @if (TempData["Message2"] != null)
 {
     <div class="alert alert-success alert-dismissible" style="margin-top:20px">
         @TempData["Message2"]
     </div>}
-
-<div class="hold-transition register-page">
-    <div class="register-box">
-        <div class="card card-outline card-primary">
-            <div class="card-header text-center">
-                <a asp-controller="Account" asp-action="Register" class="h1"><b>Cadastro</b>GDA</a>
-            </div>
-            <div class="card-body">
-                <p class="login-box-msg">Faça seu cadastro</p>
-
                 <form method="post">
                     <div asp-validation-summary="All" class="text-danger"></div>
                     <div class="input-group mb-3">
@@ -29,7 +22,7 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input asp-for="Password" type="password" class="form-control" placeholder="Password">
+                        <input asp-for="Password" type="password" class="form-control" placeholder="Senha">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock" asp-validation-for="Password"></span>
@@ -37,7 +30,7 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="Retype password">
+                        <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="Confirme a senha">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock" asp-validation-for="ConfirmPassword"></span>
@@ -102,11 +95,6 @@
                         <!-- /.col -->
                     </div>
                 </form>
-
-                <a href="login.html" class="text-center">Já tem uma conta?</a>
-            </div>
-            <!-- /.form-box -->
-        </div><!-- /.card -->
-    </div>
-</div>
-<!-- /.register-box -->
+                <p>Já tem uma conta? <a asp-controller="Account" asp-action="Login" class="text-center"> 
+                <br/>
+                Faça Login</a> </p>

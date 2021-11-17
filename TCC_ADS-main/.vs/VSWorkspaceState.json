@@ -3,8 +3,8 @@
     "",
     "\\Controllers",
     "\\Views",
-    "\\Views\\Shared"
+    "\\Views\\Account"
   ],
-  "SelectedNode": "\\Startup.cs",
+  "SelectedNode": "\\Views\\Account\\Login.cshtml",
   "PreviewInSolutionExplorer": false
 }

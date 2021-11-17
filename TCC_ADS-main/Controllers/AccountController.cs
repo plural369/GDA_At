@@ -30,7 +30,7 @@ namespace Gerenciador.Controllers
         public async Task<IActionResult> Logout()
         {
             await signInManager.SignOutAsync();
-            return RedirectToAction("Autor", "File");
+            return RedirectToAction("Login", "Account");
         }
 
         [HttpGet]

@@ -61,7 +61,7 @@
 
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="~/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+            <img class="animation__shake" src="~/dist/img/AdminLTELogo.png" alt="AdminLTELogo" padding="0" height="2%" width="5%">
         </div>
 
         <!-- Navbar -->
@@ -71,48 +71,7 @@
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a asp-controller="File" asp-action="Autor" class="nav-link">Inicio</a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Contato</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Acervo</a>
-                    <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                        <li><a href="#" class="dropdown-item">Autor </a></li>
-                        <li><a href="#" class="dropdown-item">Assunto</a></li>
-                        <li><a href="#" class="dropdown-item">Descricao</a></li>
-
-                        <li class="dropdown-divider"></li>
-
-                        <!-- Level two dropdown-->
-                        <li class="dropdown-submenu dropdown-hover">
-                            <a id="dropdownSubMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Suporte</a>
-                            <ul aria-labelledby="dropdownSubMenu2" class="dropdown-menu border-0 shadow">
-                                <li>
-                                    <a tabindex="-1" href="#" class="dropdown-item">Faq</a>
-                                </li>
-
-                                <!-- Level three dropdown-->
-                                <li class="dropdown-submenu">
-                                    <a id="dropdownSubMenu3" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Contato</a>
-                                    <ul aria-labelledby="dropdownSubMenu3" class="dropdown-menu border-0 shadow">
-                                        <li><a href="#" class="dropdown-item">Contato</a></li>
-                                        <li><a href="#" class="dropdown-item">Contato</a></li>
-                                    </ul>
-                                </li>
-                                <!-- End Level three -->
-
-                                <li><a href="#" class="dropdown-item">level 2</a></li>
-                                <li><a href="#" class="dropdown-item">level 2</a></li>
-                            </ul>
-                        </li>
-                        <!-- End Level two -->
-                    </ul>
-                </li>
             </ul>
-
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <!-- Navbar Search -->
@@ -154,12 +113,10 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="index3.html" class="brand-link">
+            <a asp-controller="File" asp-action="Autor" class="brand-link">
                 <img src="~/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">GDA</span>
             </a>
-
-
             <div class="sidebar">
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
@@ -171,7 +128,7 @@
                         <a href="#" class="d-block">@User.Identity.Name</a>
                     </div>
                 </div>
-
+                
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
@@ -191,20 +148,6 @@
                                         <i class="right fas fa-angle-left"></i>
                                     </p>
                                 </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a asp-controller="Account" asp-action="Login" class="nav-link active">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Entrar</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a asp-controller="Account" asp-action="Register" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Cadastro</p>
-                                        </a>
-                                    </li>
-                                </ul>
                             </li>
                         }
                         @if (User.IsInRole("Aluno") | (User.IsInRole("Administrador")))
@@ -224,7 +167,7 @@
                                 <a asp-controller="File" asp-action="Autor" class="nav-link">
                                     <i class="nav-icon far fa-image"></i>
                                     <p>
-                                        Acervo
+                                        Biblioteca
                                     </p>
                                 </a>
                             </li>
@@ -386,7 +329,7 @@
                             </li>
                         }
 
-                        <li class="nav-link active">ACERVO</li>
+                        <li class="nav-link active">Biblioteca</li>
                         <li class="nav-item">
                             <a asp-controller="File" asp-action="Autor" class="nav-link">
                                 <i class="nav-icon fas fa-book"></i>
@@ -441,7 +384,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Acervo Digital</h1>
+                            <h1 class="m-0">Biblioteca Digital</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
