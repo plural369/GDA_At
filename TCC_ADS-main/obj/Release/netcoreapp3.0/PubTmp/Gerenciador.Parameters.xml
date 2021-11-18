@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters>
-  <parameter name="IIS Web Application Name" description="" value="estevao-001-site1" tags="IisApp">
-    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\estev\\Desktop\\TCC\\TCC_BASE_TESTE_WEB\\obj\\Release\\netcoreapp3\.0\\PubTmp\\Out\\$" />
-  </parameter>
-  <parameter name="Gerenciador.Context.Contexto" description="" value="Data Source=SQL5104.site4now.net;Initial Catalog=db_a7ba30_tcc;User Id=db_a7ba30_tcc_admin;Password=Mimicego@14;" tags="dbfullsql">
-    <parameterEntry kind="ProviderPath" scope="dbfullsql" match="^C:\\Users\\estev\\Desktop\\TCC\\TCC_BASE_TESTE_WEB\\obj\\Release\\netcoreapp3\.0\\PubTmp\\EFSQLScripts\\Gerenciador\.Context\.Contexto\.sql$" />
-  </parameter>
-</parameters>
