@@ -1,0 +1,41 @@
+﻿@model Gerenciador.ViewModels.LoginViewModel
+@{
+    ViewBag.Title = "Login";
+}
+
+@{
+   Layout = "~/Views/Shared/_Login.cshtml";
+}
+                 <form method="post">
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <div class="input-group mb-3">
+                            <input asp-for="Email" type="email" class="form-control" placeholder="Email">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-envelope" asp-validation-for="Email"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input asp-for="Password" type="password" class="form-control" placeholder="Senha">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-lock" asp-validation-for="Password"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="icheck-primary">
+                                    <input type="checkbox" id="remember" asp-for="RememberMe" />
+                                        <label asp-for="RememberMe">
+                                        </label>
+                                </div>
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-4">
+                                <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                    </form>

@@ -1,0 +1,56 @@
+﻿
+@model List<Gerenciador.ViewModels.UserRoleViewModel>
+
+
+ <div class="card-header">
+                <h3 class="card-title">Adicionar Permissão</h3>
+              </div>
+@{
+    var roleId = ViewBag.roleId;
+}
+<form method="post">
+    <div class="col-md-12">
+        <div class="card card-success">
+            <div class="card-header">
+                <h3 class="card-title">Adicionar Usuario na Permissão</h3>
+            </div>
+            <div class="card-body">
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <div class="form-check m-1">
+                        <input type="hidden" asp-for="@Model[i].UserId" />
+                        <input type="hidden" asp-for="@Model[i].UserName" />
+                        <input asp-for="@Model[i].IsSelected" class="form-check-input" />
+                        <label class="form-check-label" asp-for="@Model[i].IsSelected">
+                            @Model[i].UserName
+                        </label>
+                    </div>
+                }
+            </div>
+            
+            <div class="card-footer">
+                <input type="submit" value="Atualizar" class="btn btn-primary" style="width:auto" />
+                <a asp-action="EditRole" asp-route-id="@roleId"
+                   class="btn btn-primary" style="width:auto">Cancelar</a>
+            </div>
+        </div>
+        </div>
+    
+</form>
+
+
+
+ 
+<script>
+$(function () {
+  bsCustomFileInput.init();
+});
+</script>
+@section Scripts {
+    <script src="~/js/CustomScript.js">
+    $(function () {
+  bsCustomFileInput.init();
+});
+    </script>
+    
+}

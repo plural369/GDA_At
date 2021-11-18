@@ -1,0 +1,109 @@
+﻿@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityRole>
+
+
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Lista de Permissões Cadastradas</h3>
+    </div>
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible" style="margin-top:20px">
+            @TempData["Message"]
+        </div>}
+    <!-- /.card-header -->
+<div class="card-body">
+
+    @if (Model.Any())
+    {
+        <a class="btn btn-primary mb-3" style="width:auto" asp-action="CreateRole"
+           asp-controller="administration">Adicionar Nivel</a>
+
+
+
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nivel</th>
+                    <th>Opcoes</th>
+                    <th>Apagar</th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+
+
+                @foreach (var role in Model)
+                {
+
+                    <tr>
+                        <td>@role.Id</td>
+                        <td>@role.Name</td>
+                        <td>
+                            <a asp-action="EditRole" asp-controller="Administration"
+                               asp-route-id="@role.Id" class="btn btn-primary">Editar</a>
+                        </td>
+                        <td>
+
+                            <form method="post" asp-action="DeleteRole" asp-route-id="@role.Id">
+
+
+                                <span id="confirmaDeleteSpan_@role.Id" style="display:none">
+                                    <span>Confirma a exclusão desta role ?</span>
+                                    <button type="submit" class="btn btn-danger">Sim</button>
+                                    <a href="#" class="btn btn-primary"
+                                       onclick="confirmaDelete('@role.Id', false)">Não</a>
+                                </span>
+                                <span id="deleteSpan_@role.Id">
+                                    <a href="#" class="btn btn-danger"
+                                       onclick="confirmaDelete('@role.Id', true)">Deletar</a>
+                                </span>
+                            </form>
+                        </td>
+
+                    </tr>
+
+
+                }
+
+            </tbody>
+        </table>
+
+
+    }
+    else
+    {
+        <div class="card">
+            <div class="card-header">
+                No roles created yet
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    Use o Botão abaixo para criar permissão
+                </h5>
+                <a class="btn btn-primary" style="width:auto"
+                   asp-controller="administration" asp-action="CreateRole">
+                    Criar Permissão
+                </a>
+            </div>
+        </div>
+    }
+
+</div>
+    </div>
+
+<script>
+$(function () {
+  bsCustomFileInput.init();
+});
+</script>
+@section Scripts {
+    <script src="~/js/CustomScript.js">
+    $(function () {
+  bsCustomFileInput.init();
+});
+    </script>
+    
+}
